@@ -21,7 +21,7 @@ Phone boot manager:
 Nokia UEFI -> bootmgr -> BCD entry "Android (lk1st)" -> BootShim -> lk1st -> boot.img
 ```
 
-- lk1st: [giannoccarol/lk2nd](https://github.com/giannoccarol/lk2nd), branch `bandit`.
+- lk1st: [lumia-msm8974/lk2nd](https://github.com/lumia-msm8974/lk2nd), branch `bandit`.
 - BootShim: imbushuo's `elf-loader-pre3` release.
 - The bootloader must be unlocked with WPinternals first. Holding volume up
   at power-on still reaches flash mode for recovery.
@@ -63,10 +63,10 @@ kernels use on MSM8974:
 - Files of the 1520 itself (firmware, Wi-Fi config, audio calibration) are
   taken from your own phone by `vendor/nokia/bandit/extract-local.sh` and are
   never committed; see the vendor README.
-- Kernel: [giannoccarol/android_kernel_nokia_msm8974](https://github.com/giannoccarol/android_kernel_nokia_msm8974),
+- Kernel: [lumia-msm8974/android_kernel_nokia_msm8974](https://github.com/lumia-msm8974/android_kernel_nokia_msm8974),
   branch `lineage-18.1-bandit`.
-- Vendor: [giannoccarol/android_vendor_nokia_bandit](https://github.com/giannoccarol/android_vendor_nokia_bandit).
-- Manifest: [giannoccarol/bandit-manifests](https://github.com/giannoccarol/bandit-manifests).
+- Vendor: [lumia-msm8974/android_vendor_nokia_bandit](https://github.com/lumia-msm8974/android_vendor_nokia_bandit).
+- Manifest: [lumia-msm8974/bandit-manifests](https://github.com/lumia-msm8974/bandit-manifests).
 
 ## Credits
 
