@@ -103,6 +103,15 @@ WITH_LINEAGE_CHARGER := false
 PRODUCT_PACKAGES += \
     librmnetctl
 
+# Device settings: LumiaParts (packages/apps/LumiaParts), shared with the
+# 930. Performance profile, double tap to wake, capacitive keys and their
+# Quick Settings tiles, all through the LineageOS and AOSP settings (no sysfs
+# access or SELinux rule of its own). Only when the app is checked out.
+ifneq ($(wildcard packages/apps/LumiaParts/Android.bp),)
+PRODUCT_PACKAGES += \
+    LumiaParts
+endif
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \

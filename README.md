@@ -60,6 +60,13 @@ kernels use on MSM8974:
   config), `config.fs` (`/persist` permissions).
 - `overlay/`: values that replace the Oppo ones (no lid, no double tap, no
   LED, no hardware keys, on-screen navigation bar).
+- Device settings: [LumiaParts](https://github.com/lumia-msm8974/android_packages_apps_LumiaParts)
+  (`packages/apps/LumiaParts`, shared with the 930), added by `device.mk`
+  when it is checked out: performance profiles of the power HAL
+  (`libbandit-perflock`), double tap to wake and the capacitive keys (key
+  disabler, key backlight), with Quick Settings tiles. It only uses the
+  LineageOS and AOSP settings, so the tree needs no extra permission or
+  SELinux rule for it.
 - Files of the 1520 itself (firmware, Wi-Fi config, audio calibration) are
   taken from your own phone by `vendor/nokia/bandit/extract-local.sh` and are
   never committed; see the vendor README.
