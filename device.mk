@@ -88,11 +88,26 @@ PRODUCT_PACKAGES += \
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
 
-# Camera (no camera HAL for the 1520 yet: the provider reports no camera).
-# Snap is left out until there is one: it only showed a black window.
+# Camera: same modules as the Lumia 930. QCamera2 HAL1 of msm8974-common
+# (lumia-msm8974 fork, Lumia size tables) over the 2014 mm-camera2 daemon of
+# the OnePlus One (vendor tree), with the Karma rear sensor and focus actuator
+# and the Skype_HD front sensor plug-ins of camera-sensors/. The HAL turns the
+# dual VFE on for the rear camera (4992-pixel mode) and off for the front one.
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    camera.device@1.0-impl
+    camera.device@1.0-impl \
+    camera.msm8974 \
+    libmmcamera_interface \
+    libmmjpeg_interface \
+    libqomx_core \
+    libmmcamera_karma \
+    libmmcamera_skyphd \
+    libactuator_karma \
+    libactuator_karma_camera \
+    libactuator_karma_camcorder
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.isp.dualisp=1
 
 # Charger
 PRODUCT_PACKAGES += \

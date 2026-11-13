@@ -86,6 +86,8 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Build
 BUILD_BROKEN_DUP_RULES := true
+# The camera stack blobs of the vendor tree are copied as files
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Charger
 BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(MSM8974_COMMON_PATH)/charger/images
