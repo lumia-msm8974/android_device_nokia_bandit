@@ -21,3 +21,13 @@ cc_library_shared {
     srcs: ["btqmishim.c"],
     vendor: true,
 }
+
+// The gyro module of mm-qcamera-daemon waits about 3 s for the SSC sensor
+// socket at every camera open when the SSC daemon is not running; fail at
+// once then. Preloaded only for mm-qcamera-daemon (init.bandit.qcom.rc).
+cc_library_shared {
+    name: "libsensor1shim",
+    srcs: ["sensor1shim.c"],
+    shared_libs: ["libdl"],
+    vendor: true,
+}
