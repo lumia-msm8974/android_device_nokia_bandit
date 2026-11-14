@@ -12,3 +12,8 @@ genfscon sysfs /devices/f9968000.i2c/i2c-5/5-001e       u:object_r:sysfs_sensors
 genfscon sysfs /devices/f9968000.i2c/i2c-5/5-000f       u:object_r:sysfs_sensors:s0
 genfscon sysfs /devices/f9924000.i2c/i2c-2/2-004b/0dbutton u:object_r:sysfs_touchpanel:s0
 genfscon sysfs /devices/f9924000.i2c/i2c-2/2-004b/wake_gesture u:object_r:sysfs_touchpanel:s0
+
+# Adreno 330 (kgsl): sepolicy-legacy labels it only under /sys/devices/soc,
+# which this 3.4 kernel does not have. Written by the power HAL (min_pwrlevel)
+# and thermal-engine (max_gpuclk).
+genfscon sysfs /devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0 u:object_r:sysfs_kgsl:s0

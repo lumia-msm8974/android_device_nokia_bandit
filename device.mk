@@ -344,6 +344,7 @@ PRODUCT_PACKAGES += \
     init.bandit.rc \
     init.bandit.power.rc \
     init.bandit.qcom.rc \
+    init.bandit.power.sh \
     init.bandit.wifi.sh \
     init.qcom.bt.sh \
     libbtqmishim \
@@ -428,3 +429,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
 # Recovery: blocking FunctionFS for adbd (kernel 3.4)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.bandit.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.bandit.rc
+
+# cpubw_hwmon on the CPU bandwidth devfreq node after boot
+# (init.bandit.power.sh); 0 keeps the device tree "cpufreq" governor.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.bandit.cpubw_hwmon=1

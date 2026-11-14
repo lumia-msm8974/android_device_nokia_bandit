@@ -1,0 +1,4 @@
+# init.bandit.power.sh: list /sys/class/devfreq and set the governor of the
+# qcom,cpubw.<N> node (sysfs_devfreq in sepolicy-legacy's file_contexts)
+allow qti_init_shell sysfs:dir r_dir_perms;
+allow qti_init_shell sysfs_devfreq:file rw_file_perms;

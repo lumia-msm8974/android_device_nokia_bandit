@@ -9,3 +9,4 @@
 
 # Init scripts
 /(vendor|system/vendor)/bin/init\.bandit\.wifi\.sh      u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.bandit\.power\.sh     u:object_r:qti_init_shell_exec:s0
