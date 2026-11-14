@@ -434,3 +434,11 @@ PRODUCT_COPY_FILES += \
 # (init.bandit.power.sh); 0 keeps the device tree "cpufreq" governor.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.bandit.cpubw_hwmon=1
+
+# Screen-off power without system suspend (lumia_screenoff kernel switches,
+# init.bandit.power.rc): handoff vote groups dropped while the screen is off.
+# 0x29 = bus + Krait rails + MMSS, measured on the 930: 235 -> 159 mA.
+# Never 0x04 (GPU/OCMEM): it hangs the ADSP. 0x40 is untested.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.bandit.screenoff_groups=0x29 \
+    persist.vendor.bandit.screenoff_max_khz=0
