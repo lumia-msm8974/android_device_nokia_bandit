@@ -50,6 +50,10 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := androidboot.hardware=bandit androidboot.bootdevice=msm_sdcc.1 \
     msm_tz_restricted=1 \
     androidboot.selinux=permissive
+# Idle power collapse through the Windows Phone firmware (kernel lumia_tzpc):
+# with all the cores collapsed the L2 may go off and the RPM gets the sleep
+# set. Read at boot only; init turns the collapse itself on (power.rc).
+BOARD_KERNEL_CMDLINE += lumia_tzpc.l2=4
 # lk1st loads the kernel at 0x10008000, ramdisk at 0x14000000, tags at
 # 0x13e00000 (it ignores the header, these keep the image consistent);
 # the kernel runs with PHYS_OFFSET 0x10000000.

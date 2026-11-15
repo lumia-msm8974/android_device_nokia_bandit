@@ -441,4 +441,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Never 0x04 (GPU/OCMEM): it hangs the ADSP. 0x40 is untested.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.bandit.screenoff_groups=0x29 \
+    persist.vendor.bandit.tzpc=1 \
     persist.vendor.bandit.screenoff_max_khz=0

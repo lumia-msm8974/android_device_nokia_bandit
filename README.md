@@ -33,7 +33,12 @@ kernels use on MSM8974:
 
 - SMP bring-up through SCM resets the SoC: single core (`nosmp`) until the
   UEFI parking-mailbox backend (proven on the Lumia 930) is ported;
-- deep idle (power collapse) goes through TrustZone: disabled;
+- idle power collapse (experimental, since the build after 2026-11-15): the
+  cores collapse through the same TrustZone call Windows uses and resume
+  through the UEFI parking mailbox; with all four down the L2 goes off and
+  the RPM gets the sleep set (kernel `lumia_tzpc`, `lumia_tzpc.l2=4` on the
+  command line). XO shutdown does not happen yet.
+  `setprop persist.vendor.bandit.tzpc 0` turns it off;
 - PAS/PIL works (the ADSP boots), so remote processors can be loaded.
 
 ## Layout
@@ -52,7 +57,7 @@ kernels use on MSM8974:
   Qualcomm ADSP sensor daemon (`sensors.qcom`) is kept off.
 - `rootdir/`: `init.bandit.rc`, `init.bandit.qcom.rc` and `ueventd.bandit.rc`
   (from msm8974-common without the Oppo pieces), `init.bandit.power.rc`
-  (never enables power collapse, never onlines cpu1-3, no mpdecision).
+  (idle power collapse through `lumia_tzpc`, no mpdecision).
 - `audio/`: audio policy and mixer paths. `mixer_paths.xml` comes from the
   OnePlus One (same WCD9320 codec) and is provisional until the 1520
   speaker/microphone wiring is known.
@@ -83,7 +88,8 @@ kernels use on MSM8974:
 - KorelisLabs, [lumia-1520-mainline](https://github.com/KorelisLabs/lumia-1520-mainline):
   boot chain, hardware map and TrustZone findings for the 1520.
 - Markynose (Mark Buchok), [lumia930-linux](https://github.com/Markynose/lumia930-linux):
-  SMP through the stock UEFI parking mailboxes on MSM8974 Lumias.
+  SMP through the stock UEFI parking mailboxes on MSM8974 Lumias, which the
+  idle power collapse also uses to resume.
 - imbushuo, [boot-shim](https://github.com/imbushuo/boot-shim).
 - msm8916-mainline, [lk2nd](https://github.com/msm8916-mainline/lk2nd).
 - René Lergner (HeathCliff), [WPinternals](https://github.com/ReneLergner/WPinternals).
