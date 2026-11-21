@@ -344,7 +344,6 @@ PRODUCT_PACKAGES += \
     init.bandit.rc \
     init.bandit.power.rc \
     init.bandit.qcom.rc \
-    init.bandit.power.sh \
     init.bandit.wifi.sh \
     init.qcom.bt.sh \
     libbtqmishim \
@@ -430,10 +429,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.bandit.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.bandit.rc
 
-# cpubw_hwmon on the CPU bandwidth devfreq node after boot
-# (init.bandit.power.sh); 0 keeps the device tree "cpufreq" governor.
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.bandit.cpubw_hwmon=1
+# CPU bandwidth (qcom,cpubw devfreq node): the device tree "cpufreq" governor
+# stays, see init.bandit.power.rc.
 
 # Screen-off power without system suspend (lumia_screenoff kernel switches,
 # init.bandit.power.rc): handoff vote groups dropped while the screen is off.
