@@ -959,10 +959,10 @@
         <ctl name="SLIM_0_TX Channels" value="Two" />
         <ctl name="SLIM TX7 MUX" value="DEC3" />
         <ctl name="DEC3 MUX" value="DMIC3" />
-        <ctl name="DEC3 Volume" value="108" />
+        <ctl name="DEC3 Volume" value="120" />
         <ctl name="SLIM TX8 MUX" value="DEC4" />
         <ctl name="DEC4 MUX" value="DMIC4" />
-        <ctl name="DEC4 Volume" value="114" />
+        <ctl name="DEC4 Volume" value="124" />
     </path>
 
     <path name="dmic-endfire">
