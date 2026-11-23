@@ -951,17 +951,18 @@
     </path>
 
     <!-- Dual-mic recording -->
-    <!-- HANDSET_MIC_ENDFIRE / SPKR_MIC_STEREO: DMIC2 + DMIC4 -->
+    <!-- HANDSET_MIC_ENDFIRE / SPKR_MIC_STEREO: DMIC3 + DMIC4. DMIC2 is silent and
+         DMIC4 weaker, so this recording path has its own gain. -->
     <path name="handset-dmic">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
-        <ctl name="SLIM TX7 MUX" value="DEC2" />
-        <ctl name="DEC2 MUX" value="DMIC2" />
-        <ctl name="DEC2 Volume" value="84" />
+        <ctl name="SLIM TX7 MUX" value="DEC3" />
+        <ctl name="DEC3 MUX" value="DMIC3" />
+        <ctl name="DEC3 Volume" value="108" />
         <ctl name="SLIM TX8 MUX" value="DEC4" />
         <ctl name="DEC4 MUX" value="DMIC4" />
-        <ctl name="DEC4 Volume" value="84" />
+        <ctl name="DEC4 Volume" value="114" />
     </path>
 
     <path name="dmic-endfire">
