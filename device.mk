@@ -362,9 +362,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     sensors.bandit
 
-# Thermal config
+# Thermal config: the msm8974-common one with an 85 C core set point
 PRODUCT_COPY_FILES += \
-    $(MSM8974_COMMON_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8974.conf
+    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8974.conf
 
 # TimeKeep
 PRODUCT_PACKAGES += \

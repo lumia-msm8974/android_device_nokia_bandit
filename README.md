@@ -63,6 +63,10 @@ kernels use on MSM8974:
   speaker/microphone wiring is known.
 - `system.prop` (QMI RIL library, CABL off), `bluetooth/` (Pronto build
   config), `config.fs` (`/persist` permissions).
+- `configs/thermal-engine-8974.conf`: the msm8974-common thermal-engine
+  configuration with the core set point at 85 C instead of 75 C. At 75 C
+  the camera, which heats the whole SoC, drove the CPU limit down to
+  300 MHz on the 930 without cooling it. No skin rule yet.
 - `overlay/`: values that replace the Oppo ones (no lid, no double tap, no
   LED, no hardware keys, on-screen navigation bar).
 - Device settings: [LumiaParts](https://github.com/lumia-msm8974/android_packages_apps_LumiaParts)
