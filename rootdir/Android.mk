@@ -70,3 +70,11 @@ LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_SRC_FILES    := etc/init.bandit.wifi.sh
 LOCAL_VENDOR_MODULE := true
 include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.bandit.recovery.sh
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES    := etc/init.bandit.recovery.sh
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_PREBUILT)

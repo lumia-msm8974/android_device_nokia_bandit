@@ -34,3 +34,16 @@ on boot
 # Android showed the "serial console enabled" performance notification.
 on property:init.svc.console=running
     stop console
+
+# LineageOS recovery for the Updater (init.bandit.recovery.sh): written into
+# the recovery partition only when it holds no boot image, so a TWRP the user
+# put there stays. Runs in the domain of install-recovery.sh.
+service vendor.bandit_recovery /vendor/bin/init.bandit.recovery.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start vendor.bandit_recovery
