@@ -72,7 +72,11 @@ kernels use on MSM8974:
   camera exposure swings between bright and dark. Shipped as
   `configs/thermal-engine-8974.conf` without comments
   (`configs/gen-thermal-conf.sh`), because the blob reads only the first
-  5120 bytes of the file. No skin rule yet. Not tried on a 1520.
+  5120 bytes of the file. Skin rules on the SYS_THERM2 thermistor with the
+  thresholds of the stock Windows DSDT (53-62 C: display, charging, CPU,
+  GPU, camera; shutdown at 70 C): they need the kernel that names its zone
+  `pa_therm1` (`bandit-thermal-adc`) and do nothing without it. Not tried
+  on a 1520.
 - `overlay/`: values that replace the Oppo ones (no lid, no double tap, no
   LED, no hardware keys, on-screen navigation bar).
 - Device settings: [LumiaParts](https://github.com/lumia-msm8974/android_packages_apps_LumiaParts)
