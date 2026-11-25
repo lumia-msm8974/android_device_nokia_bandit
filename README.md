@@ -63,10 +63,16 @@ kernels use on MSM8974:
   speaker/microphone wiring is known.
 - `system.prop` (QMI RIL library, CABL off), `bluetooth/` (Pronto build
   config), `config.fs` (`/persist` permissions).
-- `configs/thermal-engine-8974.conf`: the msm8974-common thermal-engine
-  configuration with the core set point at 85 C instead of 75 C. At 75 C
-  the camera, which heats the whole SoC, drove the CPU limit down to
-  300 MHz on the 930 without cooling it. No skin rule yet.
+- `configs/thermal-engine-8974.src.conf`: the msm8974-common thermal-engine
+  configuration with the CPU rules of the Lumia 930: monitors with fixed
+  steps (cores from 85 C, PoP memory from 80 C) down to a floor of
+  1190 MHz, instead of the step-wise rules of the blob, which have no
+  lower bound. With the camera on the whole SoC heats, not the CPU, and
+  those rules drove the limit to 300 MHz on the 930; below 960 MHz the
+  camera exposure swings between bright and dark. Shipped as
+  `configs/thermal-engine-8974.conf` without comments
+  (`configs/gen-thermal-conf.sh`), because the blob reads only the first
+  5120 bytes of the file. No skin rule yet. Not tried on a 1520.
 - `overlay/`: values that replace the Oppo ones (no lid, no double tap, no
   LED, no hardware keys, on-screen navigation bar).
 - Device settings: [LumiaParts](https://github.com/lumia-msm8974/android_packages_apps_LumiaParts)
